@@ -1,11 +1,14 @@
 import React from 'react'
-import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity, Image, ImageBackground } from 'react-native'
 import { globalStyles } from '../styles/global'
 import { Ionicons } from '@expo/vector-icons'
 
-function Home() {
+function Home({navigation}) {
+  const pressHandler = () => {
+    navigation.navigate('Countries')
+  }
   return (
-    <View style={globalStyles.container}>
+    <ImageBackground source={require('../assets/images/bg.png')} style={globalStyles.container}>
       <View style={styles.container}>
         <TouchableOpacity>
           <View style={styles.card}>
@@ -19,7 +22,7 @@ function Home() {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={pressHandler}>
           <View style={styles.card}>
             <View style={styles.card2}>
               <View style={styles.imageBox}>
@@ -49,7 +52,7 @@ function Home() {
           </View>
         </TouchableOpacity>
       </View>
-    </View>
+    </ImageBackground>
   )
 }
 
@@ -142,5 +145,5 @@ const styles = StyleSheet.create({
   },
   chatIcon: {
     color:'#CFCFCF'
-  }
+  },
 })

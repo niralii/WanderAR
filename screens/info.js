@@ -6,7 +6,7 @@ function Info() {
     return (
       <View style={globalStyles.container}>
         <Text style={globalStyles.headerText}>
-          Hi
+          This is Info
         </Text>
       </View>
     )

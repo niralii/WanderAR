@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack'
 import Home from '../screens/home'
 import Countries from '../screens/countries'
 import HeaderMain from '../shared/header'
+import Info from '../screens/info'
 
 
 const HomeStack = createStackNavigator()
@@ -13,21 +14,40 @@ function RootStack() {
         initialRouteName="Home"
         screenOptions={
           { gestureEnabled: false, 
-          headerTintColor:'#444',
+          headerTintColor:'#1592e6',
           headerStyle: {
-            backgroundColor: '#eee',
-            borderBottomColor: '#707070'
+            backgroundColor: '#E4E4E4',
+            borderBottomColor: 'black'
           }}
           }
       >
         <HomeStack.Screen
           name="Home"
           component={Home}
-          options={{headerTitle: () => <HeaderMain></HeaderMain>}}
+          options={
+            ({navigation})=>({
+              headerTitle: () => <HeaderMain navigation={navigation} title='WanderAR'></HeaderMain>
+            })
+          }
         />
         <HomeStack.Screen
           name="Countries"
           component={Countries}
+          options={
+            ({navigation})=>({
+              headerTitle: () => <HeaderMain navigation={navigation} title='Select Country'></HeaderMain>
+            })
+          }
+          initialParams={{ user: 'me' }}
+        />
+        <HomeStack.Screen
+          name="Info"
+          component={Info}
+          options={
+            ({navigation})=>({
+              headerTitle: () => <HeaderMain navigation={navigation} title='Categorization' icon='false'></HeaderMain>
+            })
+          }
           initialParams={{ user: 'me' }}
         />
       </HomeStack.Navigator>

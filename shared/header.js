@@ -7,37 +7,48 @@ const openInfo = () => {
 
 }
 
-export default class HeaderMain extends Component {
-  render() {
+export default function HeaderMain({navigation, title, icon}) {
+  if(icon === "false") {
     return (
       <View style={styles.header}>
-      <TouchableOpacity style={styles.iconTouch}>
-      <Ionicons
+      <View style={styles.headerBox}>
+        <Text style={globalStyles.headerText}>{title}</Text>
+      </View>
+    </View>
+    )
+  }
+  return (
+    <View style={styles.header}>
+      <View style={styles.headerBox}>
+        <Text style={globalStyles.headerText}>{title}</Text>
+      </View>
+      <TouchableOpacity style={styles.iconTouch} onPress={() => navigation.navigate('Info')}>
+        <Ionicons
           name='md-information-circle-outline'
           size={28}
           style={styles.icon}>
         </Ionicons>
       </TouchableOpacity>
-        <View>
-        <Text style={globalStyles.headerText}>WanderAR</Text>
-        </View>
-      </View>
-    );
-  }
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
   header: {
+    flex:1,
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'
   },
-  iconTouch: {
-    position:'absolute',
-    right: -50,
+  headerBox: {
+    width: 150
   },
-  icon:{
+  iconTouch: {
+    position: 'absolute',
+    right: -45,
+  },
+  icon: {
     color: '#1592e6'
   }
 })
