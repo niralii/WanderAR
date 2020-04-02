@@ -6,7 +6,7 @@ function Countries() {
     return (
       <View style={globalStyles.container}>
         <Text style={globalStyles.headerText}>
-          Hi
+          Insert Countries Here
         </Text>
       </View>
     )

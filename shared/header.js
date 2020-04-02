@@ -3,11 +3,11 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { globalStyles } from '../styles/global';
 import { Ionicons } from '@expo/vector-icons'
 
-const openInfo = () => {
-
-}
 
 export default function HeaderMain({navigation, title, icon}) {
+  const openInfo = () => {
+    navigation.navigate('Info')
+  }  
   if(icon === "false") {
     return (
       <View style={styles.header}>
@@ -22,10 +22,10 @@ export default function HeaderMain({navigation, title, icon}) {
       <View style={styles.headerBox}>
         <Text style={globalStyles.headerText}>{title}</Text>
       </View>
-      <TouchableOpacity style={styles.iconTouch} onPress={() => navigation.navigate('Info')}>
+      <TouchableOpacity style={styles.iconTouch} onPress={openInfo}>
         <Ionicons
           name='md-information-circle-outline'
-          size={28}
+          size={35}
           style={styles.icon}>
         </Ionicons>
       </TouchableOpacity>
@@ -39,10 +39,11 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+
   },
   headerBox: {
-    width: 150
+    width: 150,
   },
   iconTouch: {
     position: 'absolute',

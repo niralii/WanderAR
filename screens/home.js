@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, TouchableOpacity, Image, ImageBackground } from
 import { globalStyles } from '../styles/global'
 import { Ionicons } from '@expo/vector-icons'
 
-function Home({navigation}) {
+function Home({ navigation }) {
   const pressHandler = () => {
     navigation.navigate('Countries')
   }
@@ -14,7 +14,7 @@ function Home({navigation}) {
           <View style={styles.card}>
             <View style={styles.card1}>
               <View style={styles.imageBox}>
-              <Image source={require('../assets/images/arIcon.png')} style={styles.image}></Image>
+                <Image source={require('../assets/images/arIcon.png')} style={styles.image}></Image>
               </View>
               <View style={styles.textContainer}>
                 <Text style={styles.cardHeaderText}>View Country in AR</Text>
@@ -26,7 +26,7 @@ function Home({navigation}) {
           <View style={styles.card}>
             <View style={styles.card2}>
               <View style={styles.imageBox}>
-              <Image source={require('../assets/images/heritageIcon.png')} style={styles.image}></Image>
+                <Image source={require('../assets/images/heritageIcon.png')} style={styles.image}></Image>
               </View>
               <View style={styles.textContainer}>
                 <Text style={styles.cardHeaderText}>World Heritage Sites</Text>
@@ -38,7 +38,7 @@ function Home({navigation}) {
           <View style={styles.card}>
             <View style={styles.card3}>
               <View style={styles.imageBox}>
-              <Image source={require('../assets/images/gameIcon.png')} style={styles.image}></Image>
+                <Image source={require('../assets/images/gameIcon.png')} style={styles.image}></Image>
               </View>
               <View style={styles.textContainer}>
                 <Text style={styles.cardHeaderText}>Wander Woman</Text>
@@ -46,11 +46,13 @@ function Home({navigation}) {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <View style={styles.chatButton}>
-          <Ionicons name='ios-chatboxes' size={42} style={styles.chatIcon}></Ionicons>
-          </View>
-        </TouchableOpacity>
+        <View style={styles.chatContainer}>
+          <TouchableOpacity>
+            <View style={styles.chatButton}>
+              <Ionicons name='ios-chatboxes' size={42} style={styles.chatIcon}></Ionicons>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
     </ImageBackground>
   )
@@ -59,8 +61,11 @@ function Home({navigation}) {
 export default Home
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "space-around"
+  },
   card: {
-    marginTop: 27,
     width: 336,
     height: 160,
     borderRadius: 20,
@@ -85,8 +90,8 @@ const styles = StyleSheet.create({
     },
     shadowRadius: 3,
     shadowOpacity: 1,
-    justifyContent:'center',
-    alignItems:'center'
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   image: {
     width: 110,
@@ -122,8 +127,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#f7f7f7",
   },
+  chatContainer:{
+    flexDirection:"row",
+    justifyContent:"flex-end"
+  },
   chatButton: {
-    marginTop: 52,
+    marginTop: 10,
     width: 80,
     height: 81,
     backgroundColor: "#37373C",
@@ -137,13 +146,11 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderWidth: 1,
     borderColor: "#37373C",
-    borderRadius:100,
-    position:"absolute",
-    right:0,
+    borderRadius: 100,
     justifyContent: "center",
     alignItems: 'center',
   },
   chatIcon: {
-    color:'#CFCFCF'
+    color: '#CFCFCF'
   },
 })

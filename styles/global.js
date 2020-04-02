@@ -15,4 +15,14 @@ export const globalStyles = StyleSheet.create({
         textAlign: "center",
         color: "#000000"
     },
+    boxHeaderText: {
+        height: 30,
+        fontSize: 25,
+        fontWeight: "900",
+        fontStyle: "normal",
+        lineHeight: 32,
+        letterSpacing: 0,
+        textAlign: "center",
+        color: "#f7f7f7"
+    },
 })
