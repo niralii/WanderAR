@@ -9,7 +9,6 @@ export default function App() {
       <Navigator></Navigator>
     </NavigationContainer>
   )
-
   // if(fontsLoaded) {
   //   return(
   //     <NavigationContainer>

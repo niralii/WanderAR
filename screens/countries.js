@@ -2,9 +2,9 @@ import React from 'react'
 import { Text, View, StyleSheet, Image, TouchableOpacity, FlatList, ActivityIndicator } from 'react-native'
 import { SearchBar } from 'react-native-elements';
 
-function Country({ name, code }) {
+function Country({ name, code, navigation}) {
   return (
-    <TouchableOpacity style={styles.countryContainer}>
+    <TouchableOpacity style={styles.countryContainer} onPress={()=>pressHandler(navigation, code)}>
       <View style={styles.flagContainer}>
         <Image source={{ uri: 'https://flagpedia.net/data/flags/normal/' + code + '.png' }} style={styles.flagImage}></Image>
       </View>
@@ -13,6 +13,10 @@ function Country({ name, code }) {
       </View>
     </TouchableOpacity>
   )
+}
+
+function pressHandler(navigation, code) {
+  navigation.navigate('Sites', {countryCode:code})
 }
 
 export default class Countries extends React.Component {
@@ -101,7 +105,7 @@ export default class Countries extends React.Component {
           <FlatList
             data={this.state.dataSource}
             ItemSeparatorComponent={this.itemSeparator}
-            renderItem={({ item }) => <Country name={item.name} code={item.alpha2Code.toLowerCase()}></Country>}
+            renderItem={({ item }) => <Country name={item.name} code={item.alpha2Code.toLowerCase()} navigation={this.props.navigation}></Country>}
             keyExtractor={item => item.numericCode}
             enableEmptySections={true}
           ></FlatList>
