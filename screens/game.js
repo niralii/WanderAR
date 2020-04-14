@@ -83,7 +83,6 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            number:0,
             livescounters: 6,
             lettersLeft: ['a', 'b', 'd'],
             countryletters: [],
@@ -103,7 +102,7 @@ export default class App extends React.Component {
     }
 
     init() {
-        var code=this.countrykeys[this.state.number];
+        var code = this.countrykeys[Math.floor(Math.random() * this.countrykeys.length)]
         var country = this.countries[code];
         console.log(country);
         country = country.toUpperCase();
@@ -128,8 +127,8 @@ export default class App extends React.Component {
             lettersLeft: lettersLeft2,
             countryletters: countryletters,
             usedLetters: usedLetters,
-            countrycode: code,
-            number:this.state.number + 1
+            countrycode: code
+
         }, () => console.log('code' + this.state.countrycode));
 
     }
@@ -376,9 +375,9 @@ export default class App extends React.Component {
                 });
                 Alert.alert(
                     'Game Over!',
-                    'Press OK to exit.',
+                    'Your Final Score: ' + this.state.score,
                     [
-                        { text: 'OK', onPress: () => this.props.navigation.navigate('Home') },
+                        { text: 'Exit', onPress: () => this.props.navigation.navigate('Home') },
                     ],
                     { cancelable: false }
                 )
@@ -398,7 +397,7 @@ export default class App extends React.Component {
                             score: score
                         });
                         Alert.alert(
-                            'Correct Guess',
+                            'Correct Guess!',
                             'View next country',
                             [
                                 { text: 'Next', onPress: () => this.init() },
@@ -630,7 +629,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
         alignItems: 'center',
         justifyContent: 'center',
-        borderBottomWidth: 1,
+        borderBottomWidth: 2,
         borderBottomColor: "black",
     },
     dashItem: {
