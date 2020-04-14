@@ -4,9 +4,6 @@ import { globalStyles } from '../styles/global'
 import { Ionicons } from '@expo/vector-icons'
 
 function Home({ navigation }) {
-  const pressHandler = () => {
-    navigation.navigate('Countries')
-  }
   return (
     <ImageBackground source={require('../assets/images/bg.png')} style={globalStyles.container}>
       <View style={styles.container}>
@@ -22,7 +19,7 @@ function Home({ navigation }) {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={pressHandler}>
+        <TouchableOpacity onPress={()=>navigation.navigate('Countries')}>
           <View style={styles.card}>
             <View style={styles.card2}>
               <View style={styles.imageBox}>
@@ -34,7 +31,7 @@ function Home({ navigation }) {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.navigate('Wander Woman')}>
           <View style={styles.card}>
             <View style={styles.card3}>
               <View style={styles.imageBox}>

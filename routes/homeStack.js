@@ -5,6 +5,7 @@ import Countries from '../screens/countries'
 import HeaderMain from '../shared/header'
 import Info from '../screens/info'
 import Web from '../screens/web'
+import Game from '../screens/game'
 
 const HomeStack = createStackNavigator()
 
@@ -23,47 +24,56 @@ function RootStack() {
         }
       }
     >
-    <HomeStack.Screen
-      name="Home"
-      component={Home}
-      options={
-        ({ navigation }) => ({
-          headerTitle: () => <HeaderMain navigation={navigation} title='WanderAR'></HeaderMain>
-        })
-      }
-    />
-    <HomeStack.Screen
-      name="Countries"
-      component={Countries}
-      options={
-        ({ navigation }) => ({
-          headerTitle: () => <HeaderMain navigation={navigation} title='Select Country'></HeaderMain>
-        })
-      }
-      initialParams={{ user: 'me' }}
-    />
-    <HomeStack.Screen
-      name="Info"
-      component={Info}
-      options={
-        ({ navigation }) => ({
-          headerTitle: () => <HeaderMain navigation={navigation} title='Categorization' icon='false'></HeaderMain>
-        })
-      }
-      initialParams={{ user: 'me' }}
-    />
-    <HomeStack.Screen
-      name="Sites"
-      component={Web}
-      options={
-        ({ navigation }) => ({
-          headerTitle: () => <HeaderMain navigation={navigation} title='Heritage Sites'></HeaderMain>
-        })
-      }
-      initialParams={{ user: 'me' }}
-    />
-  </HomeStack.Navigator>
-  
+      <HomeStack.Screen
+        name="Home"
+        component={Home}
+        options={
+          ({ navigation }) => ({
+            headerTitle: () => <HeaderMain navigation={navigation} title='WanderAR'></HeaderMain>
+          })
+        }
+      />
+      <HomeStack.Screen
+        name="Countries"
+        component={Countries}
+        options={
+          ({ navigation }) => ({
+            headerTitle: () => <HeaderMain navigation={navigation} title='Select Country'></HeaderMain>
+          })
+        }
+        initialParams={{ user: 'me' }}
+      />
+      <HomeStack.Screen
+        name="Info"
+        component={Info}
+        options={
+          ({ navigation }) => ({
+            headerTitle: () => <HeaderMain navigation={navigation} title='Categorization' icon='false'></HeaderMain>
+          })
+        }
+        initialParams={{ user: 'me' }}
+      />
+      <HomeStack.Screen
+        name="Sites"
+        component={Web}
+        options={
+          ({ navigation }) => ({
+            headerTitle: () => <HeaderMain navigation={navigation} title='Heritage Sites'></HeaderMain>
+          })
+        }
+        initialParams={{ user: 'me' }}
+      />
+      <HomeStack.Screen
+        name="Wander Woman"
+        component={Game}
+        options={
+          ({ navigation }) => ({
+            headerTitle: () => <HeaderMain navigation={navigation} title='Wander Woman' icon='false'></HeaderMain>
+          })
+        }
+        initialParams={{ user: 'me' }}
+      />
+    </HomeStack.Navigator>
   );
 }
 
