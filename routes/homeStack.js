@@ -2,6 +2,7 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import Home from '../screens/home'
 import Countries from '../screens/countries'
+import CountriesAR from '../screens/countriesAR'
 import HeaderMain from '../shared/header'
 import Info from '../screens/info'
 import Web from '../screens/web'
@@ -69,6 +70,16 @@ function RootStack() {
         options={
           ({ navigation }) => ({
             headerTitle: () => <HeaderMain navigation={navigation} title='Wander Woman' icon='false'></HeaderMain>
+          })
+        }
+        initialParams={{ user: 'me' }}
+      />
+      <HomeStack.Screen
+        name="CountriesAR"
+        component={CountriesAR}
+        options={
+          ({ navigation }) => ({
+            headerTitle: () => <HeaderMain navigation={navigation} title='Select Country'></HeaderMain>
           })
         }
         initialParams={{ user: 'me' }}

@@ -1,13 +1,12 @@
 import React from 'react'
 import { Text, View, StyleSheet, TouchableOpacity, Image, ImageBackground } from 'react-native'
 import { globalStyles } from '../styles/global'
-import { Ionicons } from '@expo/vector-icons'
 
 function Home({ navigation }) {
   return (
     <ImageBackground source={require('../assets/images/bg.png')} style={globalStyles.container}>
       <View style={styles.container}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.navigate('CountriesAR')}>
           <View style={styles.card}>
             <View style={styles.card1}>
               <View style={styles.imageBox}>
@@ -44,11 +43,11 @@ function Home({ navigation }) {
           </View>
         </TouchableOpacity>
         <View style={styles.chatContainer}>
-          <TouchableOpacity>
+          {/* <TouchableOpacity>
             <View style={styles.chatButton}>
               <Ionicons name='ios-chatboxes' size={42} style={styles.chatIcon}></Ionicons>
             </View>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </View>
     </ImageBackground>
